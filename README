@@ -1,0 +1,17 @@
+WHMCS RewardLevel Plugin by Jonathan Gottfried
+Firstly, you need an account at http://www.rewardlevel.com/
+Once you have registered there, go to your Dashboard and Create New Plugin
+-On the newly created plugin, click GET CODE
+-Your ID # is in the code and in the URL as plugin=### - you will need this number later
+
+Next, upload the rewardlevel directory to your whmcs/modules/addons directory
+-Enable it via the WHMCS admin panel
+-Set your RewardLevel Plugin ID number on the Addon activation page (Setup->Addon Modules)
+
+Lastly, in whmcs/templates/yourtemplate/header.tpl
+Before </head> add:
+	{if !$ispaid}
+	  {$rewardlevel_pre_js}
+	{else}
+	  {$rewardlevel_post_js}
+	{/if}
